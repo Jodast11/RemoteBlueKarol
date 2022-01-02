@@ -2,6 +2,8 @@ import socket
 import base64
 import threading
 import time
+import json
+from types import SimpleNamespace
 
 recivedMessages = []
 messagesToSend = []
@@ -39,7 +41,7 @@ def sender(s):
         print("Sender crashed")
         s.close()
 
-def getReturnValue(type):
+def getReturnValue():
     global recivedMessages
     while len(recivedMessages) < 1:
         time.sleep(0.3)
@@ -47,7 +49,8 @@ def getReturnValue(type):
     value = recivedMessages[0]
     recivedMessages = recivedMessages[1:]
     # return value
-    return value
+    x = json.loads(value, object_hook=lambda d: SimpleNamespace(**d))
+    return b64dec(x.data)
 
 def send(message):
     messagesToSend.append(message)

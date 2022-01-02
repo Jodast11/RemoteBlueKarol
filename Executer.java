@@ -90,9 +90,6 @@ public class Executer
         if ("IstZiegelRechts".equals(command)){
             data = String.valueOf(r.IstZiegelRechts());
         }
-        if ("IstZiegelRechts".equals(command)){
-            data = String.valueOf(r.IstZiegelRechts());
-        }
         if ("KennungGeben".equals(command)){
             data = String.valueOf(r.KennungGeben());
         }
@@ -168,13 +165,13 @@ public class Executer
            r.QuaderEntfernen();
         }
         if ("RucksackMaximumSetzen".equals(command)){
-            int maximum = (int) commandJson.get("meldung");
+            int maximum = (int) commandJson.get("maximum");
             r.RucksackMaximumSetzen(maximum);
         }
         if ("SichtbarMachen".equals(command)){
            r.SichtbarMachen();
         }
-        if ("SichtbarMachen".equals(command)){
+        if ("SprunghoeheSetzen".equals(command)){
             int hoehe = (int) commandJson.get("hoehe");
            r.SprunghoeheSetzen(hoehe);
         }

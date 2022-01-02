@@ -2,8 +2,14 @@ import robot as r
 
 r.createRobot()
 
-r.RechtsDrehen()
+r.VerzoegerungSetzen(1)
 
-r.IstWand()
+while True:
+    if r.IstWand():
+        r.RechtsDrehen()
+    else:
+        r.Hinlegen()
+        r.Schritt()
+
 
 r.waitForCommands()
