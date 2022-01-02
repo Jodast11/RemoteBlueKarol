@@ -7,7 +7,7 @@
  */
 public class Main
 {
-    public  Main(){
+    public static void main(String[] args){
         WELT w = new WELT(10, 10, 10);
         ROBOTER r = new ROBOTER(1,1,'S',w);
         Server server = new Server(r);

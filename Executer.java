@@ -5,7 +5,7 @@ import org.json.simple.JSONValue;
 public class Executer
 {
     
-    public void execute(String commandString, ROBOTER r, Server s){
+    public void execute(String commandString, ROBOTER r, Client s){
         JSONObject commandJson;
         try {
             commandJson = Json.decodeJSON(new String(Base64.getDecoder().decode(commandString)));
@@ -25,7 +25,7 @@ public class Executer
         }
     }
     
-    public void getState(String command, ROBOTER r, JSONObject commandJson, Server s){
+    public void getState(String command, ROBOTER r, JSONObject commandJson, Client s){
         String data = "";
         if ("IstWand".equals(command)){
             data = String.valueOf(r.IstWand());
@@ -181,11 +181,11 @@ public class Executer
         if ("UnsichtbarMachen".equals(command)){
            r.UnsichtbarMachen();
         }
-        if ("UnsichtbarMachen".equals(command)){
+        if ("VerzoegerungSetzen".equals(command)){
             int verzoegerung = (int) commandJson.get("verzoegerung");
            r.VerzoegerungSetzen(verzoegerung);
         }
-        if ("UnsichtbarMachen".equals(command)){
+        if ("Warten".equals(command)){
             float zeit = (float) commandJson.get("zeit");
            r.Warten(zeit);
         }
